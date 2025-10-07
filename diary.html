@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Diary 💌</title>
+  <link rel="stylesheet" href="diary-style.css">
+</head>
+
+<body>
+  <!-- Background image -->
+  <div class="bg"></div>
+
+  <!-- Glow lights -->
+  <div class="glow" style="top:10%; left:15%; animation-delay:0s;"></div>
+  <div class="glow" style="bottom:15%; right:20%; animation-delay:2s;"></div>
+  <div class="glow" style="top:40%; right:10%; animation-delay:4s;"></div>
+
+  <!-- Settings Icon -->
+  <button class="settings-btn" onclick="toggleSettings()">⚙️</button>
+
+<!-- Settings Sidebar -->
+  <div id="settingsSidebar" class="settings-sidebar">
+    <button class="close-btn" onclick="toggleSettings()">✖</button>
+    <h3>Settings ⚙️</h3>
+    <button onclick="location.href='change-password.html'">Change Password 🔒</button>
+    <button onclick="toggleSettings()">Back 🏠</button>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    function toggleSettings() {
+      document.getElementById("settingsSidebar").classList.toggle("active");
+    }
+  </script>
+  
+
+</body>
+  <!-- 🌸 Password Lock -->
+  <div id="passwordLock" class="password-lock">
+    <div class="password-box">
+      <h2>🔒 Welcome to Your Diary 💌</h2>
+      <p id="passwordMessage">Enter your diary password to continue</p>
+      <input type="password" id="passwordInput" placeholder="Enter password..." />
+      <button id="passwordButton">Enter</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+  <!-- Background image -->
+  <div class="bg"></div>
+
+  <div class="glow" style="top:10%; left:15%; animation-delay:0s;"></div>
+  <div class="glow" style="bottom:15%; right:20%; animation-delay:2s;"></div>
+  <div class="glow" style="top:40%; right:10%; animation-delay:4s;"></div>
+
+  <div class="diary-container">
+    <h2>Write Your Feelings 💖</h2>
+    <textarea id="diaryEntry" placeholder="Write your thoughts here..."></textarea>
+
+    <div class="buttons">
+      <button onclick="saveEntry()">Save 💾</button>
+      <button onclick="toggleNotes()">Show Notes 📖</button>
+      <button onclick="enableDeleteMode()">Delete 🗑️</button>
+      <button onclick="exportNotes()">Export 📤</button>
+      <label class="enter-button">
+        Import 📥 <input type="file" accept="application/json" onchange="handleImport(event)" style="display:none;">
+      </label>
+    </div>
+
+    <div id="savedMessage"></div>
+  </div>
+
+<div class="notes-sidebar" id="notesSidebar">
+  <div class="sidebar-header">
+    <h3>Your Entries 💌</h3>
+    <button class="back-btn" onclick="toggleNotes()">← Back</button>
+  </div>
+  <div id="entriesList"></div>
+</div>
+
+  
+</div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,373 @@
+/* 💌 DIARY PAGE STYLE */
+
+body {
+  background: url('abhishek.jpg') center/cover no-repeat;
+  background-attachment: fixed;
+  font-family: 'Poppins', sans-serif;
+  color: #444;
+  text-align: center;
+  padding: 40px 10px;
+  margin: 0;
+  overflow-x: hidden;
+  position: relative;
+}
+/* 🌸 Password Lock Popup — Glass & Background */
+.password-lock {
+  position: fixed;
+  inset: 0;
+  background: url('background.jpg') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  backdrop-filter: blur(8px);
+  animation: fadeInLock 1s ease;
+}
+
+.password-box {
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 25px;
+  padding: 45px 35px;
+  text-align: center;
+  box-shadow: 0 8px 35px rgba(255, 182, 193, 0.35);
+  max-width: 340px;
+  width: 90%;
+  backdrop-filter: blur(12px);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  animation: popUp 0.8s ease;
+}
+
+.password-box h2 {
+  margin-bottom: 10px;
+  color: #ff6f91;
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.8em;
+  text-shadow: 0 2px 5px rgba(255, 255, 255, 0.5);
+}
+
+.password-box p {
+  margin-bottom: 20px;
+  color: #ff7da;
+  font-weight: 500;
+  text-shadow: 0 1px 8px rgba(0,0,0,0.3);
+}
+
+.password-box input {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-radius: 12px;
+  outline: none;
+  font-size: 1em;
+  background: rgba(255, 255, 255, 0.6);
+  color: #444;
+  margin-bottom: 20px;
+  transition: 0.3s;
+}
+
+.password-box input:focus {
+  border-color: #ff6f91;
+  box-shadow: 0 0 10px rgba(255,111,145,0.4);
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.password-box button {
+  background: linear-gradient(90deg, #ff9a9e, #fad0c4);
+  border: none;
+  border-radius: 12px;
+  padding: 10px 25px;
+  color: white;
+  font-size: 1em;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+  box-shadow: 0 4px 10px rgba(255,111,145,0.3);
+}
+
+.password-box button:hover {
+  transform: scale(1.07);
+  box-shadow: 0 6px 20px rgba(255,111,145,0.45);
+}
+
+@keyframes fadeInLock {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes popUp {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* Settings button */
+.settings-btn {
+  position: fixed;
+  top: 18px;
+  right: 20px;
+  background: rgba(255, 182, 193, 0.85);
+  border: none;
+  border-radius: 50%;
+  padding: 10px 12px;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(255, 182, 193, 0.6);
+  transition: all 0.3s ease;
+  z-index: 999;
+}
+.settings-btn:hover {
+  background: rgba(255, 105, 180, 0.9);
+  transform: scale(1.1);
+}
+
+/* 🌸 Settings Sidebar (Soft Pink) */
+.settings-sidebar {
+  position: fixed;
+  top: 0;
+  right: -350px; /* hidden by default */
+  width: 300px;
+  height: 100%;
+  background: rgba(255, 240, 245, 0.96);
+  backdrop-filter: blur(8px);
+  box-shadow: -5px 0 15px rgba(0, 0, 0, 0.15);
+  border-radius: 20px 0 0 20px;
+  padding: 20px;
+  transition: right 0.4s ease, opacity 0.4s ease;
+  opacity: 0;
+  z-index: 2000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Sidebar visible */
+.settings-sidebar.active {
+  right: 0;
+  opacity: 1;
+}
+
+/* Sidebar buttons */
+.settings-sidebar button {
+  background: linear-gradient(90deg, #ffb6c1, #ffcce0);
+  border: none;
+  border-radius: 25px;
+  padding: 10px 20px;
+  margin: 8px 0;
+  font-size: 15px;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.settings-sidebar button:hover {
+  transform: scale(1.05);
+}
+
+/* Close (X) button */
+.settings-sidebar .close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #ff7da0;
+}
+
+/* ⚙️ Gear button */
+.settings-gear {
+  position: fixed;
+  top: 18px;
+  right: 20px;
+  font-size: 25px;
+  background: none;
+  border: none;
+  color: #ff7da0;
+  cursor: pointer;
+  z-index: 2100;
+  transition: transform 0.3s ease;
+}
+
+.settings-gear:hover {
+  transform: rotate(45deg) scale(1.1);
+}
+/* Floating glow orbs */
+.glow {
+  position: fixed;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle, rgba(255,182,193,0.6), transparent 70%);
+  border-radius: 50%;
+  filter: blur(25px);
+  animation: float 8s ease-in-out infinite;
+  z-index: 0;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+/* Diary box */
+.diary-container {
+  position: relative;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 6px 25px rgba(0,0,0,0.2);
+  max-width: 700px;
+  margin: 60px auto;
+  animation: fadeIn 1.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+h2 {
+  color: #ff7da0;
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+}
+
+/* Textarea */
+textarea {
+  width: 100%;
+  height: 220px;
+  border-radius: 15px;
+  border: none;
+  outline: none;
+  padding: 15px;
+  font-size: 16px;
+  font-family: 'Poppins', sans-serif;
+  resize: none;
+  box-shadow: inset 0 3px 8px rgba(0,0,0,0.1);
+  background: #ff7fc;
+  color: #333;
+}
+/* ❌ Close / Back Button in Delete Popup */
+.delete-popup button.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: linear-gradient(to right, #ff7da0, #b8c6ff);
+  color: #ff7da;
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+  transition: all 0.3s ease;
+  z-index: 1002;
+}
+
+.delete-popup button.close-btn:hover {
+  transform: scale(1.1);
+  background: linear-gradient(to right, #ff5f85, #9ea8ff);
+}
+
+/* Hide close button by default */
+.close-btn {
+  display: none;
+}
+
+/* Show only when popup is active */
+.delete-popup.active .close-btn {
+  display: block;
+}
+
+/* Sidebar header */
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+/* Back button */
+.back-btn {
+  background: linear-gradient(to right, #b8c6ff, #ffb6c1);
+  border: none;
+  color: white;
+  font-weight: bold;
+  padding: 6px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.back-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+/* Buttons */
+.buttons {
+  margin-top: 20px;
+}
+
+button, .enter-button {
+  display: inline-block;
+  margin: 10px;
+  padding: 10px 22px;
+  border-radius: 25px;
+  background: linear-gradient(to right, #ffb6c1, #b8c6ff);
+  color: #ff7daa;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Poppins', sans-serif;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+button:hover, .enter-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+
+/* Sidebar for saved notes */
+.notes-sidebar {
+  position: fixed;
+  right: -400px;
+  top: 0;
+  width: 350px;
+  height: 100%;
+  background: rgba(255,255,255,0.95);
+  box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+  padding: 20px;
+  overflow-y: auto;
+  transition: right 0.4s ease;
+  z-index: 999;
+  border-radius: 20px 0 0 20px;
+}
+
+.notes-sidebar.active {
+  right: 0;
+}
+
+.notes-sidebar h3 {
+  color: #ff7da0;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+#entriesList .entry {
+  background: #fff;
+  border-radius: 12px;
+  padding: 12px;
+  margin-bottom: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+}
+
+#entriesList .entry:hover {
+  background: #ffeef6;
+}
